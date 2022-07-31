@@ -17,11 +17,6 @@ app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
 app.use('/jquery-ui', express.static(__dirname + '/node_modules/jquery-ui/dist/'));
 
 /** remove fix route and use path solution **/
-/**
- * app.get('/',function(req,res){
- * res.sendFile('pubilc/index.html',{root: _dirname});
- * });
- */
 
 /**
  Create my-route
@@ -64,9 +59,10 @@ app.get('/ok', (req, res) =>{
 
 
 app.get('/student/:student_id', function(req, res) {
-    util.findStudentbyId(req.params.student_id, function (result) {
-        res.send(result);
-    });
+  util.findStudentbyId(req.params.student_id, function (result) {
+      //res.json(result);
+      res.send(result);
+  });
 });
 
 
